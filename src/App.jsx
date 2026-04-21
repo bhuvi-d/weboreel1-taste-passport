@@ -31,12 +31,13 @@ function App() {
     if (prefersReducedMotion) return undefined;
 
     const lenis = new Lenis({
-      duration: 0.8,
+      lerp: 0.12,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       syncTouch: false,
-      wheelMultiplier: 0.95,
+      wheelMultiplier: 0.9,
       touchMultiplier: 1,
+      gestureOrientation: 'vertical',
     });
 
     function raf(time) {

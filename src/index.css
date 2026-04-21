@@ -100,7 +100,7 @@
   /* Snapping Layout */
   .snap-y-mandatory {
     scroll-snap-type: y proximity;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     overflow-y: auto;
     min-height: 100vh;
     overscroll-behavior-y: contain;
@@ -109,7 +109,7 @@
 
   .snap-start {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
   }
 }
 
