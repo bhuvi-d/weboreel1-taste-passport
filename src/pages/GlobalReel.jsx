@@ -4,8 +4,16 @@ import { Share2, RotateCcw, MapPin, Sparkles, MoveDown } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { MAPPING } from '../data/foodData';
 
+const DEFAULT_RECOMMENDATION_IMAGE = 'https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&q=80&w=1200';
+
 const ReelItem = ({ trait, recommendation, index, total }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgSrc, setImgSrc] = useState(recommendation.image || DEFAULT_RECOMMENDATION_IMAGE);
+
+  useEffect(() => {
+    setImgLoaded(false);
+    setImgSrc(recommendation.image || DEFAULT_RECOMMENDATION_IMAGE);
+  }, [recommendation.image]);
 
   return (
     <section className="min-h-screen w-full snap-start relative flex flex-col items-center justify-center bg-cream-base overflow-hidden py-20 page-top-offset">
@@ -30,9 +38,16 @@ const ReelItem = ({ trait, recommendation, index, total }) => {
           <div className={`w-full h-full rounded-[4rem] bg-saffron-100/30 animate-pulse absolute inset-0 z-0 transition-opacity duration-1000 ${imgLoaded ? 'opacity-0' : 'opacity-100'}`} />
           
           <img 
-            src={recommendation.image} 
+            src={imgSrc}
             alt={recommendation.name}
             onLoad={() => setImgLoaded(true)}
+            onError={() => {
+              if (imgSrc !== DEFAULT_RECOMMENDATION_IMAGE) {
+                setImgSrc(DEFAULT_RECOMMENDATION_IMAGE);
+                return;
+              }
+              setImgLoaded(true);
+            }}
             className={`w-full h-full object-cover rounded-[4rem] shadow-[0_60px_120px_-30px_rgba(124,45,18,0.3)] border-[12px] md:border-[16px] border-white relative z-10 transition-all duration-[1.5s] ${imgLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'}`}
           />
           

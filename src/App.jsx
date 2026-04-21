@@ -31,10 +31,12 @@ function App() {
     if (prefersReducedMotion) return undefined;
 
     const lenis = new Lenis({
-      duration: 1.0, // Snappier duration
+      duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 1.2, // Slightly more responsive
+      syncTouch: false,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1,
     });
 
     function raf(time) {
