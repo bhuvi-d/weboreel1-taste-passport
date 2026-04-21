@@ -36,7 +36,7 @@ export const DNASection = ({ selectedDishes, dishes, onComplete }) => {
   }, [stage]);
 
   return (
-    <section className="min-h-screen w-full bg-[#0a0604] text-white flex flex-col items-center justify-center relative overflow-hidden px-6">
+    <section className="min-h-screen w-full bg-[#0a0604] text-white flex flex-col items-center justify-center relative overflow-hidden section-shell page-top-offset pb-16">
       <AnimatePresence mode="wait">
         {stage === 'analyzing' && (
           <motion.div 
@@ -45,7 +45,7 @@ export const DNASection = ({ selectedDishes, dishes, onComplete }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.8 }}
-            className="relative z-10 w-full max-w-2xl text-center"
+            className="relative z-10 w-full max-w-2xl text-center py-8"
           >
             <div className="mb-16 relative">
                <motion.div
@@ -63,11 +63,11 @@ export const DNASection = ({ selectedDishes, dishes, onComplete }) => {
                <div className="absolute inset-0 bg-saffron-500/5 blur-3xl rounded-full" />
             </div>
 
-            <h2 className="text-5xl md:text-7xl font-display font-black mb-6 tracking-tighter leading-none">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black mb-6 tracking-tighter leading-none">
               Sequencing Your <br />
               <span className="text-saffron-500 italic font-serif-italic">Flavor DNA</span>
             </h2>
-            <p className="text-saffron-100/30 text-xs md:text-sm mb-16 uppercase tracking-[0.4em] font-black">
+            <p className="text-saffron-100/60 text-xs md:text-sm mb-16 uppercase tracking-[0.4em] font-black">
               Parsing {selectedDishes.length} distinct culinary memories...
             </p>
 
@@ -98,14 +98,14 @@ export const DNASection = ({ selectedDishes, dishes, onComplete }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 w-full max-w-5xl text-center"
+            className="relative z-10 w-full max-w-5xl text-center py-10"
           >
             {/* Verified Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 3, rotate: -30 }}
               animate={{ opacity: 1, scale: 1, rotate: 12 }}
               transition={{ delay: 0.8, type: 'spring', damping: 12, stiffness: 100 }}
-              className="absolute top-[-80px] right-2 md:right-[-40px] z-50 pointer-events-none"
+              className="absolute top-[-50px] sm:top-[-80px] right-0 sm:right-2 md:right-[-40px] z-50 pointer-events-none"
             >
               <div className="w-36 h-36 md:w-56 md:h-56 border-[8px] md:border-[16px] border-saffron-500 rounded-full flex items-center justify-center bg-[#0a0604] shadow-[0_0_50px_rgba(255,106,19,0.3)]">
                  <div className="flex flex-col items-center -rotate-12">
@@ -120,11 +120,11 @@ export const DNASection = ({ selectedDishes, dishes, onComplete }) => {
                <Globe size={140} className="text-saffron-500 mx-auto animate-pulse-slow opacity-80" />
             </div>
 
-            <h2 className="text-7xl md:text-[10rem] font-display font-black leading-[0.8] mb-12 tracking-tighter">
+            <h2 className="text-5xl sm:text-6xl md:text-[10rem] font-display font-black leading-[0.85] md:leading-[0.8] mb-10 sm:mb-12 tracking-tighter">
               ACCESS <br className="md:hidden" /> <span className="text-saffron-500">GRANTED</span>
             </h2>
             
-            <p className="text-2xl md:text-5xl text-saffron-100/50 font-medium mb-20 max-w-3xl mx-auto leading-tight tracking-tight">
+            <p className="text-xl sm:text-2xl md:text-5xl text-saffron-100/80 font-medium mb-14 sm:mb-20 max-w-3xl mx-auto leading-tight tracking-tight">
               Analysis confirms. Your profile is <br className="hidden md:block" /> 
               <span className="text-white font-black italic underline decoration-saffron-500 decoration-8 underline-offset-8">“Comfort with Adventurous DNA.”</span>
             </p>
@@ -133,7 +133,7 @@ export const DNASection = ({ selectedDishes, dishes, onComplete }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={onComplete}
-              className="btn-experience group text-2xl px-16 py-8"
+              className="btn-experience group text-lg sm:text-2xl px-8 sm:px-16 py-5 sm:py-8"
             >
               <Sparkles className="animate-pulse" />
               <span>Explore My World Palate</span>

@@ -10,11 +10,12 @@ export const FoodCard = ({ dish, isSelected, onToggle }) => {
       whileHover={{ scale: 1.02, y: -8 }}
       whileTap={{ scale: 0.97 }}
       onClick={() => onToggle(dish.id)}
-      className={`relative group h-72 md:h-96 rounded-[3rem] overflow-hidden transition-all duration-700 block w-full border-none outline-none ${
+      className={`relative group h-72 md:h-96 rounded-[2rem] md:rounded-[3rem] overflow-hidden transition-all duration-500 block w-full border-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron-500 ${
         isSelected 
           ? 'ring-4 ring-saffron-500 shadow-[0_40px_80px_-20px_rgba(255,106,19,0.5)]' 
           : 'ring-1 ring-saffron-200/50 hover:ring-saffron-400 shadow-xl shadow-saffron-900/5'
       }`}
+      aria-pressed={isSelected}
     >
       {/* Shimmer / Skeleton */}
       {!isLoaded && (

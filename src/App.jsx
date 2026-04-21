@@ -27,6 +27,9 @@ function App() {
 
   // Smooth Scroll Initialization (Lenis)
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return undefined;
+
     const lenis = new Lenis({
       duration: 1.0, // Snappier duration
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -66,9 +69,21 @@ function App() {
   };
 
   return (
-    <main className="font-sans antialiased text-spice-black bg-cream-base min-h-screen">
-      <Navbar isAudioEnabled={isAudioEnabled} toggleAudio={toggleAudio} />
+    <main className="font-sans antialiased text-spice-black bg-cream-base min-h-screen overflow-x-clip">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:bg-white focus:text-spice-black focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:outline focus:outline-2 focus:outline-saffron-500"
+      >
+        Skip to main content
+      </a>
+      <Navbar
+        isAudioEnabled={isAudioEnabled}
+        toggleAudio={toggleAudio}
+        onReset={reset}
+        step={step}
+      />
 
+      <div id="main-content" tabIndex={-1}>
       <AnimatePresence mode="wait">
         {step === 'hero' && (
           <motion.div
@@ -76,7 +91,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, filter: "blur(20px)" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.55 }}
           >
             <Hero onStart={() => handleNextStep('selection')} />
           </motion.div>
@@ -88,7 +103,7 @@ function App() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
             <Selection 
               dishes={INDIAN_DISHES} 
@@ -119,7 +134,7 @@ function App() {
             key="reel"
             initial={{ opacity: 0, filter: "blur(40px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 0.9 }}
           >
             <GlobalReel 
               selectedDishes={selectedDishes} 
@@ -129,6 +144,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
 
       {/* Robust Ambient Background Music */}
       <audio

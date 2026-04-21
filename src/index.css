@@ -24,17 +24,73 @@
 
   html {
     scroll-behavior: smooth;
+    height: 100%;
   }
 
   body {
     @apply font-display bg-cream-base text-spice-black antialiased;
     line-height: 1.5;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 106, 19, 0.4) transparent;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-saffron-500);
+    outline-offset: 3px;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(255, 142, 60, 0.7), rgba(230, 81, 0, 0.8));
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
   }
 }
 
 @layer components {
   .btn-experience {
     @apply relative overflow-hidden inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-saffron-500 text-white font-black text-xl shadow-xl shadow-saffron-500/30 transition-all duration-300 hover:bg-saffron-600 hover:-translate-y-1 active:scale-95;
+  }
+
+  .section-shell {
+    @apply w-full px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-top-offset {
+    padding-top: clamp(5.25rem, 8vw, 6.5rem);
   }
 
   .glass-saffron {
@@ -46,7 +102,8 @@
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     overflow-y: auto;
-    height: 100vh;
+    min-height: 100vh;
+    overscroll-behavior-y: contain;
   }
 
   .snap-start {
@@ -72,5 +129,23 @@
   @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .snap-y-mandatory {
+    scroll-snap-type: none;
   }
 }

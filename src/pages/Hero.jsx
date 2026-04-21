@@ -4,7 +4,7 @@ import { Compass, Sparkles, MoveRight } from 'lucide-react';
 
 export const Hero = ({ onStart }) => {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cream-base px-6">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-cream-base section-shell page-top-offset py-16 sm:py-20">
       {/* Decorative Floating Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -42,7 +42,7 @@ export const Hero = ({ onStart }) => {
         </motion.div>
       </div>
 
-      <div className="relative z-10 max-w-7xl text-center">
+      <div className="relative z-10 max-w-7xl text-center w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -57,7 +57,7 @@ export const Hero = ({ onStart }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display font-black text-6xl md:text-[11rem] leading-[0.8] text-spice-black mb-12 tracking-tighter"
+          className="font-display font-black text-5xl sm:text-6xl md:text-[11rem] leading-[0.85] md:leading-[0.8] text-spice-black mb-10 sm:mb-12 tracking-tighter"
         >
           YOUR TASTE <br />
           <span className="text-saffron-500 font-serif-italic opacity-90 block my-4 italic">HAS A</span>
@@ -68,7 +68,7 @@ export const Hero = ({ onStart }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-xl md:text-3xl text-saffron-900/50 font-medium max-w-2xl mx-auto mb-16 leading-tight tracking-tight"
+          className="text-lg sm:text-xl md:text-3xl text-saffron-900/80 font-medium max-w-2xl mx-auto mb-12 sm:mb-16 leading-tight tracking-tight"
         >
           Map your soul's flavors to their <span className="text-saffron-600 font-bold underline decoration-saffron-200/50 decoration-4 underline-offset-8">global twin</span>.
         </motion.p>
@@ -92,11 +92,11 @@ export const Hero = ({ onStart }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="mt-24 flex justify-center items-center gap-8 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
+          className="mt-16 sm:mt-24 flex justify-center items-center gap-4 sm:gap-8 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
         >
-           <div className="h-px w-16 bg-gradient-to-r from-transparent to-saffron-300" />
+           <div className="h-px w-10 sm:w-16 bg-gradient-to-r from-transparent to-saffron-300" />
            <span className="text-[10px] font-black tracking-[0.5em] uppercase">Scroll to Discover</span>
-           <div className="h-px w-16 bg-gradient-to-l from-transparent to-saffron-300" />
+           <div className="h-px w-10 sm:w-16 bg-gradient-to-l from-transparent to-saffron-300" />
         </motion.div>
       </div>
       
