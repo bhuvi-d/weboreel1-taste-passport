@@ -5,6 +5,11 @@ import samosaImg from '../assets/food/samosa.png';
 import pavBhajiImg from '../assets/food/pav_bhaji.png';
 import momosImg from '../assets/food/momos.png';
 import paniPuriImg from '../assets/food/pani_puri.png';
+import idlyImg from '../assets/food/idly.png';
+import dosaImg from '../assets/food/dosa.png';
+import paneerTikkaImg from '../assets/food/paneer_tikka.png';
+import rajmaChawalImg from '../assets/food/rajma_chawal.png';
+import gulabJamunImg from '../assets/food/gulab_jamun.png';
 
 // International Imports
 import congeeImg from '../assets/food/congee.png';
@@ -15,19 +20,25 @@ import buchimgaeImg from '../assets/food/buchimgae.png';
 import eloteImg from '../assets/food/elote.png';
 import cevicheImg from '../assets/food/ceviche.png';
 import shishTaoukImg from '../assets/food/shish_taouk.png';
+import poutineImg from '../assets/food/poutine.png';
+import feijoadaImg from '../assets/food/feijoada.png';
+import empanadasImg from '../assets/food/empanadas.png';
+import baoBunsImg from '../assets/food/bao_buns.png';
+import xiaolongbaoImg from '../assets/food/xiaolongbao.png';
+import loukoumadesImg from '../assets/food/loukoumades.png';
 
 export const INDIAN_DISHES = [
   { 
     id: 'idly', 
     name: 'Idly', 
-    image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800', 
+    image: idlyImg, 
     traits: ['Fermented & airy', 'Soft & comforting'],
     description: 'The soul of South India, fluffy and weightless.'
   },
   { 
     id: 'dosa', 
     name: 'Dosa', 
-    image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800', 
+    image: dosaImg, 
     traits: ['Crispy & playful', 'Savory & thin'],
     description: 'A golden, paper-thin crunch with a savory heart.'
   },
@@ -48,7 +59,7 @@ export const INDIAN_DISHES = [
   { 
     id: 'paneer-tikka', 
     name: 'Paneer Tikka', 
-    image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&q=80&w=800', 
+    image: paneerTikkaImg, 
     traits: ['Smoky & grilled', 'Soft & succulent'],
     description: 'Charred perfection with a melt-in-mouth texture.'
   },
@@ -62,7 +73,7 @@ export const INDIAN_DISHES = [
   { 
     id: 'rajma-chawal', 
     name: 'Rajma Chawal', 
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800', 
+    image: rajmaChawalImg, 
     traits: ['Mild & wholesome', 'Earthy & comforting'],
     description: 'Homemade comfort that feels like a warm hug.'
   },
@@ -90,7 +101,7 @@ export const INDIAN_DISHES = [
   { 
     id: 'gulab-jamun', 
     name: 'Gulab Jamun', 
-    image: 'https://images.unsplash.com/photo-1527324688151-0e627063f2b1?auto=format&fit=crop&q=80&w=800', 
+    image: gulabJamunImg, 
     traits: ['Sweet & syrup-soaked', 'Indulgent & soft'],
     description: 'Saffron-scented orbs of pure decadence.'
   },
@@ -156,36 +167,36 @@ export const MAPPING = {
     name: 'Poutine',
     country: 'Canada',
     description: 'Rich, savory, and gloriously indulgent, much like the buttery goodness of Pav Bhaji.',
-    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&q=80&w=800'
+    image: poutineImg
   },
   'Mild & wholesome': {
     name: 'Feijoada',
     country: 'Brazil',
     description: 'A hearty bean stew that warms the soul just like your favorite Rajma.',
-    image: 'https://images.unsplash.com/photo-1604544215162-a74061c9aa9d?auto=format&fit=crop&q=80&w=800'
+    image: feijoadaImg
   },
   'Crunchy & fried': {
     name: 'Empanadas',
     country: 'Latin America',
     description: 'The golden, crispy pocket of joy that every Samosa lover will adore.',
-    image: 'https://images.unsplash.com/photo-1614088685112-0a7ca946911f?auto=format&fit=crop&q=80&w=800'
+    image: empanadasImg
   },
   'Soft & pillowy': {
     name: 'Bao Buns',
     country: 'Taiwan',
     description: 'Cloud-like buns that cradle flavorful hearts, just like a Vada Pav.',
-    image: 'https://images.unsplash.com/photo-1512411933012-32b95b87cc23?auto=format&fit=crop&q=80&w=800'
+    image: baoBunsImg
   },
   'Steamed & delicate': {
     name: 'Xiaolongbao',
     country: 'China',
     description: 'Delicate dough holding a world of flavor, just like your beloved Momos.',
-    image: 'https://images.unsplash.com/photo-1517685645259-c6caddb71367?auto=format&fit=crop&q=80&w=800'
+    image: xiaolongbaoImg
   },
   'Sweet & syrup-soaked': {
     name: 'Loukoumades',
     country: 'Greece',
     description: 'Honey-drenched dough balls that satisfy the same soul as Gulab Jamun.',
-    image: 'https://images.unsplash.com/photo-1574044536244-931fa0f26938?auto=format&fit=crop&q=80&w=800'
+    image: loukoumadesImg
   }
 };

@@ -16,7 +16,7 @@ const ReelItem = ({ trait, recommendation, index, total }) => {
   }, [recommendation.image]);
 
   return (
-    <section className="min-h-screen w-full snap-start relative flex flex-col items-center justify-center bg-cream-base overflow-hidden py-20 page-top-offset">
+    <section className="min-h-screen w-full relative flex flex-col items-center justify-center bg-cream-base overflow-hidden py-20 page-top-offset">
       {/* Background Large Text - Improved cinematic effect */}
       <div className="absolute inset-0 opacity-[0.04] flex items-center justify-center pointer-events-none overflow-hidden select-none">
         <span className="text-[28vw] font-black uppercase tracking-tighter whitespace-nowrap leading-none blur-sm">
@@ -150,31 +150,27 @@ export const GlobalReel = ({ selectedDishes, dishes, onRestart }) => {
   };
 
   useEffect(() => {
-    const container = document.getElementById('reel-container');
     const handleScroll = () => {
-      if (!container) return;
-      
-      const scrollPos = container.scrollTop;
-      const height = container.clientHeight;
+      const scrollPos = window.scrollY;
+      const height = window.innerHeight;
       const index = Math.round(scrollPos / height);
       setActiveIndex(index);
 
-      const bottom = container.scrollHeight - container.scrollTop <= container.clientHeight + 100;
+      const bottom = document.documentElement.scrollHeight - window.scrollY <= window.innerHeight + 100;
       if (bottom && !showSummary) {
         setShowSummary(true);
         triggerConfetti();
       }
     };
     
-    container?.addEventListener('scroll', handleScroll);
-    return () => container?.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [showSummary]);
 
   return (
     <div 
       id="reel-container"
-      data-lenis-prevent
-      className="snap-y-mandatory min-h-screen overflow-y-auto bg-cream-base scroll-smooth"
+      className="bg-cream-base w-full min-h-screen flex flex-col"
     >
       {/* Navigation Indicator Overlay */}
       <div className="fixed top-[5.75rem] sm:top-24 left-4 sm:left-8 md:left-12 z-50 flex items-center gap-6 pointer-events-none">
@@ -207,7 +203,7 @@ export const GlobalReel = ({ selectedDishes, dishes, onRestart }) => {
       ))}
 
       {/* Final Shareable Card Section - Dark Mode Premium */}
-      <section className="min-h-screen w-full snap-start bg-[#0a0604] flex flex-col items-center justify-center p-4 sm:p-6 lg:p-12 relative overflow-hidden py-16 page-top-offset">
+      <section className="min-h-screen w-full bg-[#0a0604] flex flex-col items-center justify-center p-4 sm:p-6 lg:p-12 relative overflow-hidden py-16 page-top-offset">
         {/* Glow Effects */}
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-saffron-600/10 blur-[150px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-saffron-800/10 blur-[150px] rounded-full" />
